@@ -1,34 +1,27 @@
 package com.sparta_depth.fclass.controller;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sparta_depth.fclass.dto.ItemDto;
 import com.sparta_depth.fclass.service.ItemSearchService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.util.List;
 
+@RequiredArgsConstructor
 @Controller
 public class ItemSearchController {
 
     private final ItemSearchService itemSearchService;
 
-    @Autowired
-    public ItemSearchController(ItemSearchService itemSearchService) {
-        this.itemSearchService = itemSearchService;
-    }
+//    @Autowired
+//    public ItemSearchController(ItemSearchService itemSearchService) {
+//
+//        this.itemSearchService = itemSearchService;
+//    }
 
     @GetMapping("/api/search")
     @ResponseBody

@@ -1,11 +1,15 @@
 package com.sparta_depth.fclass.model;
 
 import com.sparta_depth.fclass.dto.ProductRequestDto;
+import com.sparta_depth.fclass.validator.ProductValidator;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 @Setter
 @Getter // get 함수를 일괄적으로 만들어줍니다.
@@ -39,6 +43,8 @@ public class Product {
 
     // 관심 상품 생성 시 이용합니다.
     public Product(ProductRequestDto requestDto, Long userId) {
+        ProductValidator.validateProductInput(requestDto, userId);
+
 // 관심상품을 등록한 회원 Id 저장
         this.userId = userId;
         this.title = requestDto.getTitle();
@@ -47,4 +53,6 @@ public class Product {
         this.lprice = requestDto.getLprice();
         this.myprice = 0;
     }
+
+
 }

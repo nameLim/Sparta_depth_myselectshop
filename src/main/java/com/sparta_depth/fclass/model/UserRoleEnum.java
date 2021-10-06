@@ -1,14 +1,17 @@
 package com.sparta_depth.fclass.model;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 public enum UserRoleEnum {
     USER(Authority.USER), // 사용자 권한
     ADMIN(Authority.ADMIN); // 관리자 권한
 
     private final String authority;
 
-    UserRoleEnum(String authority) {
-        this.authority = authority;
-    }
+//    UserRoleEnum(String authority) {
+//        this.authority = authority;
+//    }
 
     public String getAuthority() {
         return this.authority;
